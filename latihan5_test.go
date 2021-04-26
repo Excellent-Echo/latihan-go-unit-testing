@@ -50,7 +50,7 @@ func ChangeNumtoStr(input int) string {
 			hasil = append(hasil, satuan[units])
 		case 1:
 			hasil = append(hasil, belasan[units])
-			break
+			// break
 		default:
 			if units > 0 {
 				word := fmt.Sprintf("%s %s", puluhan[tens], satuan[units])
@@ -58,7 +58,7 @@ func ChangeNumtoStr(input int) string {
 			} else {
 				hasil = append(hasil, puluhan[tens])
 			}
-			break
+			// break
 		}
 		mega := ribuan[i]
 		if mega != "" {

@@ -14,7 +14,7 @@ func TestLatihan6(t *testing.T) {
 		"kausKaki": 110000,
 		"sabuk":    55000,
 	}
-	t.Run("Test Latihan5 with parameter valid number ", func(t *testing.T) {
+	t.Run("Test Latihan6 with parameter valid number ", func(t *testing.T) {
 		got := Ppn(belanja1)
 		want := "total PPN yang diterima sebesar 472000"
 

@@ -4,10 +4,6 @@ import (
 	"testing"
 )
 
-// func TestLatihan2(t *testing.T) {
-// 	fmt.Println(ChangeToIdr(100000))
-// }
-
 func TestLatihan2(t *testing.T) {
 	t.Run("Test Latihan2 with parameter valid number ", func(t *testing.T) {
 		got := ChangeToIdr(110000)

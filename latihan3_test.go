@@ -1,32 +1,41 @@
 package main
 
 import (
-	"fmt"
 	"testing"
 )
 
-func GenapGanjil(numbers ...int) string {
-	countGanjil := 0
-	countGenap := 0
-	if len(numbers) <= 0 {
-		return "tidak ada angka"
-	}
-	for _, num := range numbers {
-		if num%2 == 0 {
-			countGenap++
-		} else {
-			countGanjil++
-		}
-	}
-	if countGanjil > countGenap {
-		return "angka terbanyak adalah ganjil"
-	} else if countGenap > countGanjil {
-		return "angka terbanyak adalah genap"
-	}
-
-	return ""
-}
-
 func TestLatihan3(t *testing.T) {
-	fmt.Println(GenapGanjil(1, 2, 3, 4, 5))
+	t.Run("Test Latihan3 case ganjil ", func(t *testing.T) {
+		got := GenapGanjil(1, 2, 3, 4, 5)
+		want := "angka terbanyak adalah ganjil"
+
+		t.Logf("Test : %s", want)
+
+		if got != want {
+			t.Errorf("got %s, but want %s", got, want)
+		}
+	})
+
+	t.Run("Test Latihan2 case genap ", func(t *testing.T) {
+		got := GenapGanjil(4, 2)
+		want := "angka terbanyak adalah genap"
+
+		t.Logf("Test : %s", want)
+
+		if got != want {
+			t.Errorf("got %s, but want %s", got, want)
+		}
+	})
+
+	t.Run("Test Latihan2 case no number ", func(t *testing.T) {
+		got := GenapGanjil()
+		want := "tidak ada angka"
+
+		t.Logf("Test : %s", want)
+
+		if got != want {
+			t.Errorf("got %s, but want %s", got, want)
+		}
+	})
+
 }

@@ -1,6 +1,8 @@
 package main
 
-import "strconv"
+import (
+	"strconv"
+)
 
 func Belanja(total int) string {
 	beforePpn := total * 10 / 11
@@ -46,4 +48,15 @@ func GenapGanjil(numbers ...int) string {
 	}
 
 	return ""
+}
+
+func Bantuan(data map[string]string) string {
+	jarakRumah, _ := strconv.Atoi(data["jarakRumah"])
+	umur, _ := strconv.Atoi(data["umur"])
+
+	if jarakRumah < 100 && data["berkeluarga"] == "ya" && umur > 20 {
+		return data["name"] + " layak mendapat bantuan dari pemerintah"
+	} else {
+		return data["name"] + " tidak layak mendapat bantuan dari pemerintah"
+	}
 }

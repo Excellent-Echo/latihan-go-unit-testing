@@ -1,21 +1,8 @@
 package main
 
 import (
-	"fmt"
-	"strconv"
 	"testing"
 )
-
-func Bantuan(data map[string]string) {
-	jarakRumah, _ := strconv.Atoi(data["jarakRumah"])
-	umur, _ := strconv.Atoi(data["umur"])
-
-	if jarakRumah < 100 && data["berkeluarga"] == "ya" && umur > 20 {
-		fmt.Println(data["name"] + " layak mendapat bantuan dari pemerintah")
-	} else {
-		fmt.Println(data["name"] + " tidak layak mendapat bantuan dari pemerintah")
-	}
-}
 
 func TestLatihan4(t *testing.T) {
 	var data = map[string]string{
@@ -24,20 +11,33 @@ func TestLatihan4(t *testing.T) {
 		"jarakRumah":  "50",
 		"berkeluarga": "ya",
 	}
+
 	var data2 = map[string]string{
 		"name":        "santi",
 		"umur":        "19",
 		"jarakRumah":  "80",
 		"berkeluarga": "ya",
 	}
-	var data3 = map[string]string{
-		"name":        "budi",
-		"umur":        "45",
-		"jarakRumah":  "120",
-		"berkeluarga": "ya",
-	}
 
-	Bantuan(data)
-	Bantuan(data2)
-	Bantuan(data3)
+	t.Run("Test Latihan4 case layak mendapat bantuan ", func(t *testing.T) {
+		got := Bantuan(data)
+		want := "andi layak mendapat bantuan dari pemerintah"
+
+		t.Logf("Test : %s", want)
+
+		if got != want {
+			t.Errorf("got %s, but want %s", got, want)
+		}
+	})
+
+	t.Run("Test Latihan4 case tidak layak mendapat bantuan ", func(t *testing.T) {
+		got := Bantuan(data2)
+		want := "santi tidak layak mendapat bantuan dari pemerintah"
+
+		t.Logf("Test : %s", want)
+
+		if got != want {
+			t.Errorf("got %s, but want %s", got, want)
+		}
+	})
 }

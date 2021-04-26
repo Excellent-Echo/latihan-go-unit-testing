@@ -16,7 +16,7 @@ func TestLatihan3(t *testing.T) {
 		}
 	})
 
-	t.Run("Test Latihan2 case genap ", func(t *testing.T) {
+	t.Run("Test Latihan3 case genap ", func(t *testing.T) {
 		got := GenapGanjil(4, 2)
 		want := "angka terbanyak adalah genap"
 
@@ -27,7 +27,7 @@ func TestLatihan3(t *testing.T) {
 		}
 	})
 
-	t.Run("Test Latihan2 case no number ", func(t *testing.T) {
+	t.Run("Test Latihan3 case no number ", func(t *testing.T) {
 		got := GenapGanjil()
 		want := "tidak ada angka"
 

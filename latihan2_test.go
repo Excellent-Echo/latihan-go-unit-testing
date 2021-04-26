@@ -1,23 +1,22 @@
 package main
 
 import (
-	"fmt"
-	"strconv"
 	"testing"
 )
 
-func ChangeToIdr(nominal int) string {
-	idr := strconv.Itoa(nominal)
-	thousand := 3
-	if nominal < 0 {
-		thousand++
-	}
-	for i := len(idr); i > thousand; {
-		i -= 3
-		idr = idr[:i] + "," + idr[i:]
-	}
-	return "IDR " + idr + ",00"
-}
+// func TestLatihan2(t *testing.T) {
+// 	fmt.Println(ChangeToIdr(100000))
+// }
+
 func TestLatihan2(t *testing.T) {
-	fmt.Println(ChangeToIdr(100000))
+	t.Run("Test Latihan2 with parameter valid number ", func(t *testing.T) {
+		got := ChangeToIdr(110000)
+		want := "IDR 110,000,00"
+
+		t.Logf("Test : %s", want)
+
+		if got != want {
+			t.Errorf("got %s, but want %s", got, want)
+		}
+	})
 }

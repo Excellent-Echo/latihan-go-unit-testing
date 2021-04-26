@@ -1,20 +1,8 @@
 package main
 
 import (
-	"fmt"
-	"strconv"
 	"testing"
 )
-
-func Ppn(data map[string]int) string {
-	sum := 0
-
-	for _, val := range data {
-		ppn := val / 11
-		sum += ppn
-	}
-	return strconv.Itoa(sum)
-}
 
 func TestLatihan6(t *testing.T) {
 	var belanja1 = map[string]int{
@@ -26,7 +14,14 @@ func TestLatihan6(t *testing.T) {
 		"kausKaki": 110000,
 		"sabuk":    55000,
 	}
+	t.Run("Test Latihan5 with parameter valid number ", func(t *testing.T) {
+		got := Ppn(belanja1)
+		want := "total PPN yang diterima sebesar 472000"
 
-	totalPpn := Ppn(belanja1)
-	fmt.Println("total PPN yang diterima sebesar " + totalPpn)
+		t.Logf("Test : %s", want)
+
+		if got != want {
+			t.Errorf("got %s, but want %s", got, want)
+		}
+	})
 }

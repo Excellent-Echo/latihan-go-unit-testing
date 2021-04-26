@@ -129,3 +129,13 @@ func ChangeNumtoStr(input int) string {
 	}
 	return strings.Join(hasil, " ")
 }
+
+func Ppn(data map[string]int) string {
+	sum := 0
+
+	for _, val := range data {
+		ppn := val / 11
+		sum += ppn
+	}
+	return "total PPN yang diterima sebesar " + strconv.Itoa(sum)
+}

@@ -1,16 +1,30 @@
 package main
 
 import (
-	"fmt"
 	"testing"
 )
 
-func Belanja(total int) (ppn int, beforePpn int) {
-	beforePpn = total * 10 / 11
-	ppn = total / 11
-	return
-}
 func TestLatihan1(t *testing.T) {
-	pajak, harga := Belanja(110000)
-	fmt.Printf("Pajak: %v, Harga: %v\n", pajak, harga)
+	t.Run("Test Latihan1 with parameter valid number ", func(t *testing.T) {
+		got := Belanja(110000)
+		want := "Pajak: 10000, Harga: 100000"
+
+		t.Logf("Test : %s", want)
+
+		if got != want {
+			t.Errorf("got %s, but want %s", got, want)
+		}
+	})
+
+	t.Run("Test Latihan1 with parameter unvalid number ", func(t *testing.T) {
+		got := Belanja(0)
+		want := "Input must be a valid number"
+
+		t.Logf("Test : %s", want)
+
+		if got != want {
+			t.Errorf("got %s, but want %s", got, want)
+		}
+	})
+
 }

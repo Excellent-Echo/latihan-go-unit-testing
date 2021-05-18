@@ -5,7 +5,7 @@ import (
 	"fmt"
 )
 
-func validateGanjilGenap(genap int, ganjil int) (bool, error) {
+func ValidateGanjilGenap(genap int, ganjil int) (bool, error) {
 	if genap == 0 && ganjil == 0 {
 		return false, errors.New("tidak boleh kosong")
 	}
@@ -35,7 +35,7 @@ func GenapGanjil(number ...int) string {
 			ganjil++
 		}
 	}
-	if valid, err := validateGanjilGenap(genap, ganjil); valid {
+	if valid, err := ValidateGanjilGenap(genap, ganjil); valid {
 		if genap > ganjil {
 			hasil = "Angka terbanyak adalah genap"
 		}

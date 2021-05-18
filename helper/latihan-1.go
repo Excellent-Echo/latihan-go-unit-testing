@@ -5,10 +5,11 @@ import (
 	"fmt"
 )
 
-func validate(price int) (bool, error) {
+func Validate(price int) (bool, error) {
 	if price == 0 {
-		return false, errors.New("tidak boleh tanpa value")
+		return false, errors.New("tidak boleh nol")
 	}
+
 	return true, nil
 }
 
@@ -20,14 +21,14 @@ func catch() {
 	}
 }
 
-func Total(price int) int {
+func Total(price int) (int, int) {
 	defer catch()
 
 	var (
 		pajak, normalPrice int
 	)
 
-	if valid, err := validate(price); valid {
+	if valid, err := Validate(price); valid {
 		pajak = price / 11
 		normalPrice = price - pajak
 	} else {
@@ -35,9 +36,9 @@ func Total(price int) int {
 		fmt.Println("end")
 	}
 
-	fmt.Println("harga normal :", normalPrice)
-	fmt.Println("Pajak PPN :", pajak)
+	//fmt.Println("harga normal :", normalPrice)
+	//fmt.Println("Pajak PPN :", pajak)
 	//fmt.Println("Total PPN :", price)
 
-	return pajak
+	return pajak, normalPrice
 }

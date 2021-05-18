@@ -7,12 +7,11 @@ import (
 
 func main() {
 	// Latihan 1
-	helper.Total(110000)
-	helper.Total(220000)
-	helper.Total(500000)
-	helper.Total(1000000)
-	helper.Total(0)
-
+	fmt.Println(helper.Total(110000))
+	fmt.Println(helper.Total(220000))
+	fmt.Println(helper.Total(500000))
+	fmt.Println(helper.Total(1000000))
+	fmt.Println(helper.Total(0))
 	fmt.Println("-----------------------------------")
 
 	//	latihan 2

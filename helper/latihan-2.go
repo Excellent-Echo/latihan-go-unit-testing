@@ -5,7 +5,7 @@ import (
 	"fmt"
 )
 
-func validateChangeToIdr(price int) (bool, error) {
+func ValidateChangeToIdr(price int) (bool, error) {
 	if price == 0 {
 		return false, errors.New("tidak boleh tanpa value")
 	}
@@ -24,7 +24,7 @@ func ChangeToIdr(price int) string {
 	defer catchChangeToIdr()
 
 	var hasil string
-	if valid, err := validateChangeToIdr(price); valid {
+	if valid, err := ValidateChangeToIdr(price); valid {
 		if price < 0 {
 			return "-" + ChangeToIdr(-price)
 		}
